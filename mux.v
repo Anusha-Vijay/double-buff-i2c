@@ -7,7 +7,7 @@ input passTXbuff;
 output reg TXOut;
 
 always @(passTXbuff) begin
-if(passTXbuff==0)
+if(~passTXbuff)
 assign TXOut=TXbuff0;
 
 if (passTXbuff)
