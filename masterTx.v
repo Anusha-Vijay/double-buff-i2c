@@ -1,4 +1,4 @@
-module master (clk, StartTX,TXIn,TXout,write,addr,TXBuff0,TXBuff1);
+module master (clk, StartTX,TXIn,TXout,write,addr,TXBuff0,TXBuff1,Ackrecvd);
 
 // Declaring inputs and outputs of the whole master transmission block, these are driven by the testbench
 
@@ -8,6 +8,8 @@ wire [31:0] dataIn;
 input [3:0] addr;
 output TXout;
 output TXBuff0,TXBuff1;
+
+input wire Ackrecvd;
 
 /*Declaring wire's the interconnect the components of the transmission block
 TX controlregister unit output to the inputs of the controller brst --> burst upcounter's cnt */
@@ -25,7 +27,8 @@ end
 input wire[5:0] TXCount,BurstCnt; //wire that goes from the counter outputs  to the finite State Machine inputs
 
 wire ResetTXCount, IncTXCount, LoadTXBuff0, LoadTXBuff1, ShiftTXBuff0, ShiftTXBuff1,
-passTXbuff,SendStartSig, SendWriteSig, SendStopSig,WaitAck,LoadAddr,SDA,SCL,ResetBurstCnt, IncBurstCnt,Ackrecvd;
+passTXbuff,SendStartSig, SendWriteSig, SendStopSig,WaitAck,LoadAddr,SDA,SCL,ResetBurstCnt, IncBurstCnt;
+
 
 
 

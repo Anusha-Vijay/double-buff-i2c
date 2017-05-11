@@ -7,7 +7,6 @@ input [5:0] BurstCnt;
 input  SDA, SCL;
 output reg ResetTXCount, IncTXCount, LoadTXBuf0, LoadTXBuf1, ShiftTXBuf0, ShiftTXBuf1, PassTXBuf, LoadAddr ,SendStartSig, SendWriteSig, WaitAck, ResetBurstCnt, IncBurstCnt, SendStopSig;
 input Ackrecvd;
-
 reg [3:0] PS;
 reg [3:0] NS;
 reg [5:0] Count; //
@@ -95,9 +94,8 @@ WAITACK: begin
          Count = 4'b1000;
          ResetTXCount <= 1'b1;
          ResetBurstCnt <= 1'b1;
-         if(Ackrecvd == 1'b1) begin
+         if(Ackrecvd)
          NS <= LOADB0;
-         end
          end
          
 LOADB0: begin                       //load buffer 0 and shift buffer 1
@@ -112,14 +110,14 @@ LOADB0: begin                       //load buffer 0 and shift buffer 1
         end
 EMPTYB1: begin
          if(TXCount <= Count) begin
-         if((TXCount % 6'b001000) == 0) begin
+         if((TXCount % 8) == 0) begin
          IncTXCount <= 1'b0;
          NS <= WAITACK1;
          end
          else begin
          LoadTXBuf1 <= 1'b0;
          ShiftTXBuf0 <= 1'b1;
-         PassTXBuf <= 1'b0;
+         PassTXBuf <= 1'b1; //this is the change i have made
          IncTXCount <= 1'b1;
          end
          end else begin
@@ -130,7 +128,7 @@ EMPTYB1: begin
         
 WAITACK1: begin
          WaitAck <= 1'b1;
-         if(SDA== 1'b0) begin
+         if(SDA == 1'b0) begin
          if((TXCount > Count)&&(BurstCnt < burst)) begin
          Count = size ;
          ResetTXCount <= 1'b1;
@@ -206,3 +204,6 @@ end
 TXcounter m1(ResetTXCount,IncTXCount,TXCount,clk);
 burstcounter m2(ResetBurstCnt, IncBurstCnt, BurstCnt);
 endmodule
+
+
+

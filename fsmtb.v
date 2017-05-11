@@ -19,13 +19,15 @@ $dumpfile("dump.vcd");
 $dumpvars(1);
 clk=1'b1;
 StartTX=0;
+Ackrecvd=0;
 end
 
 always #10 clk=~clk;
 initial begin
 
 
-#50 StartTX=1; 
+#50 StartTX=1;
+#50 Ackrecvd=1;
 
 end
 initial

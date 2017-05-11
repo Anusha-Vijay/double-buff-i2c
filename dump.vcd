@@ -1,5 +1,5 @@
 $date
-	Tue May  9 21:23:53 2017
+	Wed May 10 19:39:10 2017
 $end
 $version
 	Icarus Verilog
@@ -30,43 +30,67 @@ $var reg 1 3 Ackrecvd $end
 $var reg 1 4 StartTX $end
 $var reg 1 5 clk $end
 $upscope $end
+$scope module i2cTXinterface $end
+$var wire 1 6 SCL $end
+$var wire 1 7 SDA $end
+$var wire 1 8 SendStartSig $end
+$var wire 1 9 SendStopSig $end
+$var wire 1 : SendWriteSig $end
+$var wire 1 ; ShiftTXBuf0 $end
+$var wire 1 < ShiftTXBuf1 $end
+$var wire 1 = WaitAck $end
+$var wire 1 > clk $end
+$var wire 1 ? data $end
+$var reg 1 @ RecvdAck $end
+$var reg 1 A SCL_out $end
+$var reg 1 B SDA_in $end
+$var reg 1 C SDA_out $end
+$var reg 1 D Wait $end
+$upscope $end
 $scope module test $end
-$var wire 32 6 dataIn [31:0] $end
-$var wire 1 7 TXOut $end
-$var wire 1 8 TXBuff1 $end
-$var wire 1 9 TXBuff0 $end
-$var reg 1 : LoadTXBuff0 $end
-$var reg 1 ; LoadTXBuff1 $end
-$var reg 1 < ShiftTXBuff0 $end
-$var reg 1 = ShiftTXBuff1 $end
-$var reg 1 > StartTX $end
-$var reg 32 ? TXIn [31:0] $end
-$var reg 1 @ clk $end
-$var reg 1 A passTXbuff $end
+$var wire 32 E dataIn [31:0] $end
+$var wire 1 F TXOut $end
+$var wire 1 G TXBuff1 $end
+$var wire 1 H TXBuff0 $end
+$var reg 1 I LoadTXBuff0 $end
+$var reg 1 J LoadTXBuff1 $end
+$var reg 1 K ShiftTXBuff0 $end
+$var reg 1 L ShiftTXBuff1 $end
+$var reg 1 M StartTX $end
+$var reg 32 N TXIn [31:0] $end
+$var reg 1 O clk $end
+$var reg 1 P passTXbuff $end
 $upscope $end
 $scope module testbench $end
-$var wire 1 B TXout $end
-$var wire 1 C TXBuff1 $end
-$var wire 1 D TXBuff0 $end
-$var reg 1 E StartTX $end
-$var reg 32 F TXIn [31:0] $end
-$var reg 4 G addr [3:0] $end
-$var reg 1 H clk $end
-$var reg 1 I write $end
+$var wire 1 Q TXout $end
+$var wire 1 R TXBuff1 $end
+$var wire 1 S TXBuff0 $end
+$var reg 1 T Ackrecvd $end
+$var reg 1 U StartTX $end
+$var reg 32 V TXIn [31:0] $end
+$var reg 4 W addr [3:0] $end
+$var reg 1 X clk $end
+$var reg 1 Y write $end
 $upscope $end
 $scope module fsmtb $end
 $upscope $end
-$scope module test $end
-$upscope $end
-$scope module testbench $end
-$upscope $end
-$scope module fsmtb $end
+$scope module i2cTXinterface $end
 $upscope $end
 $scope module test $end
 $upscope $end
 $scope module testbench $end
 $upscope $end
 $scope module fsmtb $end
+$upscope $end
+$scope module i2cTXinterface $end
+$upscope $end
+$scope module test $end
+$upscope $end
+$scope module testbench $end
+$upscope $end
+$scope module fsmtb $end
+$upscope $end
+$scope module i2cTXinterface $end
 $upscope $end
 $scope module test $end
 $upscope $end
@@ -75,29 +99,45 @@ $upscope $end
 $enddefinitions $end
 #0
 $dumpvars
-0I
-1H
-b0 G
-b10 F
-0E
-xD
+0Y
+1X
+b0 W
+b10 V
+0U
+0T
+xS
+xR
+xQ
+0P
+1O
+b1000011 N
+1M
+0L
+0K
+0J
+1I
+xH
+xG
+xF
+b1000011 E
+0D
 xC
 xB
-0A
-1@
-b1000011 ?
-1>
-0=
-0<
-0;
-1:
-x9
-x8
+xA
+x@
+z?
+z>
+z=
+z<
+z;
+z:
+z9
+z8
 x7
-b1000011 6
+x6
 15
 04
-x3
+03
 bx 2
 01
 00
@@ -118,52 +158,52 @@ z"
 z!
 $end
 #10
-1I
-0H
-0@
+1Y
+0X
+0O
 05
 #20
-1H
-1@
+1X
+1O
 15
 #30
-0H
-0@
+0X
+0O
 05
 #40
-1H
-1@
+1X
+1O
 15
 #50
-0H
-0@
+0X
+0O
 05
 14
 #60
-1H
-1@
+1X
+1O
 15
-b1000 F
-b1 G
+b1000 V
+b1 W
 #70
-0H
-0@
+0X
+0O
 05
 #80
 1*
 1+
 1/
 1.
-1H
-1@
+1X
+1O
 15
 #90
-0H
-0@
+0X
+0O
 05
 #100
-17
-19
+1F
+1H
 10
 1'
 1-
@@ -172,93 +212,95 @@ b1 G
 0+
 0/
 b1 %
-1H
-1@
+1X
+1O
 15
-0:
-1<
+13
+0I
+1K
 #110
-0H
-0@
+0X
+0O
 05
-b1000011 F
-1E
+b1000011 V
+1U
 #120
 b10 %
 0-
-1H
-1@
+1X
+1O
 15
 #130
-0H
-0@
+0X
+0O
 05
 #140
-07
-09
+0F
+0H
 b11 %
-1H
-1@
+1X
+1O
 15
 #150
-0H
-0@
+0X
+0O
 05
 #160
 b100 %
-1H
-1@
+1X
+1O
 15
+1T
 #170
-0H
-0@
+0X
+0O
 05
 #180
-1B
-1D
+1Q
+1S
 b101 %
-1H
-1@
+1X
+1O
 15
 #190
-0H
-0@
+0X
+0O
 05
 #200
 b110 %
-1H
-1@
+1X
+1O
 15
 #210
-0H
-0@
+0X
+0O
 05
 #220
-0B
-0D
-17
-19
-b111 %
+0Q
+0S
+1F
 1H
-1@
+b111 %
+1X
+1O
 15
 #230
-0H
-0@
+0X
+0O
 05
 #240
-07
-09
+0F
+0H
 b1000 %
 00
 1(
 0'
-1H
-1@
+1X
+1O
 15
 #250
-0H
-0@
+0X
+0O
 05
 #260
 b0 2
@@ -266,314 +308,341 @@ b0 2
 1+
 1$
 0(
-1H
-1@
+1X
+1O
 15
 #270
-0H
-0@
+0X
+0O
 05
 #280
+1#
+10
+1&
+1.
+0,
+0+
+0$
 b1 %
-1H
-1@
+1X
+1O
 15
 #290
-0H
-0@
+0X
+0O
 05
 #300
-1B
-1D
-1H
-1@
+1Q
+1S
+1'
+b10 %
+1X
+1O
 15
-0<
+0K
 #310
-0H
-0@
+0X
+0O
 05
 #320
-1H
-1@
+b11 %
+1X
+1O
 15
 #330
-0H
-0@
+0X
+0O
 05
 #340
-1H
-1@
+xQ
+b100 %
+1X
+1O
 15
 #350
-0H
-0@
+0X
+0O
 05
 #360
-1H
-1@
+1Q
+1R
+b101 %
+1X
+1O
 15
 #370
-0H
-0@
+0X
+0O
 05
 #380
-1H
-1@
+b110 %
+1X
+1O
 15
 #390
-0H
-0@
+0X
+0O
 05
 #400
-1H
-1@
+0Q
+0R
+b111 %
+1X
+1O
 15
-1;
+1J
 #410
-0H
-0@
+0X
+0O
 05
 #420
-1H
-1@
+b1000 %
+1X
+1O
 15
 #430
-0H
-0@
+0X
+0O
 05
 #440
-1H
-1@
+b1001 %
+00
+1X
+1O
 15
 #450
-0H
-0@
+0X
+0O
 05
 #460
-1H
-1@
+1$
+1X
+1O
 15
 #470
-0H
-0@
+0X
+0O
 05
 #480
-1H
-1@
+1Q
+1R
+1X
+1O
 15
 #490
-0H
-0@
+0X
+0O
 05
 #500
-1H
-1@
+0Q
+0R
+1X
+1O
 15
 #510
-0H
-0@
+0X
+0O
 05
 #520
-1H
-1@
+1X
+1O
 15
 #530
-0H
-0@
+0X
+0O
 05
 #540
-1H
-1@
+1X
+1O
 15
 #550
-0H
-0@
+0X
+0O
 05
 #560
-1H
-1@
+1X
+1O
 15
 #570
-0H
-0@
+0X
+0O
 05
 #580
-1H
-1@
+1X
+1O
 15
 #590
-0H
-0@
+0X
+0O
 05
 #600
-1H
-1@
+1X
+1O
 15
 #610
-0H
-0@
+0X
+0O
 05
 #620
-1H
-1@
+1X
+1O
 15
 #630
-0H
-0@
+0X
+0O
 05
 #640
-1H
-1@
+1X
+1O
 15
 #650
-0H
-0@
+0X
+0O
 05
 #660
-1H
-1@
+1X
+1O
 15
 #670
-0H
-0@
+0X
+0O
 05
 #680
-1H
-1@
+1X
+1O
 15
 #690
-0H
-0@
+0X
+0O
 05
 #700
-18
-17
-1H
-1@
+1G
+1F
+1X
+1O
 15
-1A
-0;
-1=
+1P
+0J
+1L
 #710
-0H
-0@
+0X
+0O
 05
 #720
-1H
-1@
+1X
+1O
 15
 #730
-0H
-0@
+0X
+0O
 05
 #740
-07
-08
-1H
-1@
+0F
+0G
+1X
+1O
 15
 #750
-0H
-0@
+0X
+0O
 05
 #760
-1H
-1@
+1X
+1O
 15
 #770
-0H
-0@
+0X
+0O
 05
 #780
-1H
-1@
+1X
+1O
 15
 #790
-0H
-0@
+0X
+0O
 05
 #800
-1H
-1@
+1X
+1O
 15
 #810
-0H
-0@
+0X
+0O
 05
 #820
-17
-18
-1H
-1@
+1F
+1G
+1X
+1O
 15
 #830
-0H
-0@
+0X
+0O
 05
 #840
-07
-08
-1H
-1@
+0F
+0G
+1X
+1O
 15
 #850
-0H
-0@
+0X
+0O
 05
 #860
-1H
-1@
+1X
+1O
 15
 #870
-0H
-0@
+0X
+0O
 05
 #880
-1H
-1@
+1X
+1O
 15
 #890
-0H
-0@
+0X
+0O
 05
 #900
-1H
-1@
+1X
+1O
 15
 #910
-0H
-0@
+0X
+0O
 05
 #920
-1H
-1@
+1X
+1O
 15
 #930
-0H
-0@
+0X
+0O
 05
 #940
-1H
-1@
+1X
+1O
 15
 #950
-0H
-0@
+0X
+0O
 05
 #960
-1H
-1@
+1X
+1O
 15
 #970
-0H
-0@
+0X
+0O
 05
 #980
-1H
-1@
+1X
+1O
 15
 #990
-0H
-0@
+0X
+0O
 05

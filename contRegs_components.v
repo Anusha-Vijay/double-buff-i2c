@@ -4,6 +4,9 @@ input write,clk;
 input[31:0] dataIn;
 reg [31:0] ctrlReg;
 
+//initial begin
+//ctrlReg = 32'b0;
+//end
 
 always@(posedge clk) begin
 if(write==1) begin
